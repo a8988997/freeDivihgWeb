@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>潛境FreeDiving</title>
+    <link rel="stylesheet" href="./css/count.css" />
+    <link rel="stylesheet" href="./css/hdAndft.css" />
+    <script src="./_js/jquery-3.6.0.js"></script>
+  </head>
+  <body>
+    <header id="header"></header>
+    <main>
+      <div id="main">
+        <div id="section1">
+          <h1>閉氣小練習</h1>
+          <img id="clock" src="./img/clock.png" alt="" />
+          <p id="text"></p>
+          <button onclick="start()">Start</button>
+          <button onclick="stop()">Stop</button>
+        </div>
+        <div id="section2">
+          <table id="grade">
+            <tr id="tr1">
+              <th>總成績</th>
+            </tr>
+            <tr id="tr2">
+              <td>
+                <ol id="result"></ol>
+              </td>
+            </tr>
+          </table>
+          <button onclick="reset()">Reset</button>
+        </div>
+      </div>
+    </main>
+    <footer id="footer"></footer>
+  </body>
+  <script>
+    let count;
+    let sec = 0;
+    let min = 0;
+    let hour = 0;
+
+    document.getElementById("text").innerHTML = "00 : 00 : 00";
+    function start() {
+      document.getElementById("text").innerHTML = "00 : 00 : 00";
+      clearInterval(count);
+      sec = 0;
+      min = 0;
+      hour = 0;
+      count = setInterval(time, 1000);
+    }
+
+    function time() {
+      sec += 1;
+      if (sec > 60) {
+        min += 1;
+        sec = 0;
+      } else if (min > 60) {
+        hour += 1;
+        min = 0;
+      }
+
+      let s = sec < 10 ? "0" + sec : sec;
+      let m = min < 10 ? "0" + min : min;
+      let h = hour < 10 ? "0" + hour : hour;
+      document.getElementById("text").innerHTML = `${h} : ${m} :
+        ${s}`;
+    }
+
+    function stop() {
+      $("#result").append(`<li>${hour} 時 ${min} 分 ${sec} 秒 </li>`);
+      clearInterval(count);
+      sec = 0;
+      min = 0;
+      hour = 0;
+    }
+    function reset() {
+      $("#result li").remove();
+      document.getElementById("text").innerHTML = "00 : 00 : 00";
+    }
+    $(function () {
+      $("#footer").load("footer.html");
+      $("#header").load("header.html");
+    });
+  </script>
+</html>

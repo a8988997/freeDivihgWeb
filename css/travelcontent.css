@@ -1,0 +1,49 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+#title {
+  margin-left: 50px;
+  margin-top: 30px;
+}
+
+.content {
+  margin: 40px 200px;
+  line-height: 40px;
+}
+.content ul {
+  font-size: 18px;
+  list-style: "- ";
+}
+#imgContent {
+  display: flex;
+  justify-content: space-around;
+}
+#title h1 {
+  display: inline;
+  font-size: 40px;
+}
+.content h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+#title a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: rgb(53 125 147);
+  transition: all 0.2s;
+}
+#title a:hover {
+  color: rgb(219, 150, 21);
+  font-size: 18px;
+}
+
+#imgContent img {
+  width: max-content;
+  height: max-content;
+  width: 480px;
+  height: 340px;
+}
