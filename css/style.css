@@ -6,7 +6,6 @@
 
 #backimg {
   border: 1px solid black;
-  background-image: url(/img/backimg.png);
   background-size: cover;
   background-position: center;
   height: 750px;
